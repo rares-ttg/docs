@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"e05a7783fe69e21f","x":-580,"y":-440,"width":290,"height":250,"type":"group","label":"Integration"},
+		{"id":"802f73fbfd14d6ac","x":-560,"y":-420,"width":250,"height":60,"type":"text","text":"# CIP"},
+		{"id":"47bb5d54f051804a","type":"text","text":"# EGI","x":-560,"y":-270,"width":250,"height":60}
+	],
+	"edges":[]
+}

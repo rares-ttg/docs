@@ -1,0 +1,33 @@
+# Fields
+
+- [[Game]]
+	- gameId: - parent game's identifier
+	- gameName: is this necessary? Just join the game table
+- profileId- d'oh
+- profileName
+- [[Affiliate]]
+	- #field/affId
+	- affName 
+		- The affiliate's name? Why not an Id?
+		- does Game Profile apply only to games sent to Affiliates? #why 
+- suiteId
+	- Is it suiteId or #field/siteId ?
+- State
+	- activeint 
+- [[Currency]]
+	- #field/curName 
+	- #field/curId
+- [[Account]]
+	- outputAccId
+- [[Linked Progressive Jackpot]]
+	- lpjGameProfile: int
+		- #why ? is this a flag or an id?
+	- lpjDisabled: int
+		- #why int? why not boolean, FFS?
+- [[GameDeviceType]]
+	- deviceTypeId. I'm assuming it's about the game device type
+	- deviceName
+- [[Chat]]
+	- chatChannelIndex
+- scopeId - #what ?
+- #field/groupId #what 

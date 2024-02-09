@@ -1,0 +1,1 @@
+This is just a collection of [[GameProfile]] objects and the name of a remote service (`remoteServiceName`).  It is not used too often. There is a service and an action bean that returns it 

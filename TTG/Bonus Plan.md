@@ -2,10 +2,12 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 
 - #field/bonusPlanInfoId
 - name
-- bonusType
-	- where are the bonusTypes declared?
+- [[Bonus Type]]
+	- bonusType
+		- where are the bonusTypes declared?
+		- are the types: Money, Games, both?
+	- bonusTypeDesc
 - #field/bonusCode
-- bonusTypeDesc
 - bonusAmount
 - minDeposit
 - maxDeposit
@@ -13,7 +15,8 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 - [[BonusAward]] - not so sure it refers to BonusAward class, though
 	- awardFixedAmount
 	- awardPercentage
-- enabled
+- State
+	- enabled
 - firstTimeDeposit:int
 - isForPlayerGroup:int
 - applyCommunityMetric: int
@@ -83,14 +86,15 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 - maxNumberBonus
 - maxNumberBonusAll
 - priority
-- modifiedByGid
+- #field/modifiedByGid
+	- id of global user that created the Bonus Plan
 - [[BonusPlanType]]
 	- playable
 	- withdrawable
 
 
 
-lsdId=it's providerId of external Game provider for EGI
+#field/lsdId = id of external Game provider for EGI
 
 
 | Acr | name |

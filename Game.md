@@ -1,0 +1,1 @@
+A Game can be added to a [[GameSuite]]. 

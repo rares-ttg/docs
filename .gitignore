@@ -1,2 +1,6 @@
 .obsidian
 Github token.md
+.DS_Store
+app.json
+appearance.json
+workspace.json

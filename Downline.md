@@ -27,6 +27,4 @@ Fields:
 	1. [[NetWinTab]] related. 
 15. countryId: String
 	1. whose country? Why not a damn foreign key? 
-
-
-Figure 1 ![[Partner System.svg]]()
+Figure 1 ![[Partner System.svg]]

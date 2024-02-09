@@ -53,7 +53,7 @@ Contrary to its name, this is a `POST` request, because reasons.
 Input, this is in `FreeSpinGetRequest`: 
 - clientAccount
 - siteId
-- lsdId
+- #field/lsdId
 
 ### /freeSpins/add
 

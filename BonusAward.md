@@ -10,7 +10,7 @@ Fields
 	- This is the id of the player that was awarded the bonus (isn't it?)
 - affiliateId - [[Affiliate]], I suppose
 - accountId - This refers to the [[Account]]
-- Freebies
+- [[Freebie]]
 	- Money - this is one kind of bonus that can be given
 		- deposit - #what does this refer to? It is not the amount, since that one is below
 		- awardAmount

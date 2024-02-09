@@ -1,6 +1,6 @@
 It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bonuses that can be offered through the app. Both money and free games can be offered as bonuses. It seems to somehow overlap with awards. 
 
-- bonusPlanInfoId
+- #field/bonusPlanInfoId
 - name
 - bonusType
 	- where are the bonusTypes declared?
@@ -84,9 +84,11 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 - maxNumberBonusAll
 - priority
 - modifiedByGid
-- playable
-- withdrawable
-- 
+- [[BonusPlanType]]
+	- playable
+	- withdrawable
+
+
 
 lsdId=it's providerId of external Game provider for EGI
 

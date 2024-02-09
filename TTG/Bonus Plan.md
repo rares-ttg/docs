@@ -3,14 +3,16 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 - bonusPlanInfoId
 - name
 - bonusType
-- bonusCode
+	- where are the bonusTypes declared?
+- #field/bonusCode
 - bonusTypeDesc
 - bonusAmount
 - minDeposit
 - maxDeposit
 - maxAccumulatedBonus
-- awardFixedAmount
-- awardPercentage
+- [[BonusAward]] - not so sure it refers to BonusAward class, though
+	- awardFixedAmount
+	- awardPercentage
 - enabled
 - firstTimeDeposit:int
 - isForPlayerGroup:int
@@ -25,33 +27,53 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 - playerGroupFileName-What is this?
 - comments
 - batchNumber
-- Eligibility
-	- inclAffs: List(Integer)
-		- I assume this is a list of ids of affiliates included in the bonusPlan
-	- inclAffiliateList: List([[Affiliate]])
-		- I assume this is a list of affiliates included
-		- but what's the difference between this and inclAffs?
-	- incAccts List(Integer)
-		- I assume this is a list of ids of included accounts
-	- inclAccountList: List(Account)
-		- same as above
-		- why is that one integer, but this one is Account?
-	- exclAccountList: List(Account)
-	- exclCountries List(String)
-		- I assume this is a list of excluded countries
-	- inclCountryList: List(Country)
-		- I assume this is a list of countries to whom the bonus plan applies. 
-		- why is this a list of Country, while for exclusion Strings are used?
-	- inclDeptTypeIds: List(String)
-		- i assume this is a list of the type of deposits(?) that are allowed to access the bonusPlan
-	- inclDepositTypeList: List([[Deposit Type]])
-		- I assume this is a list of the types of depostis 
-	- inclGames: List (Integer)
-		- I assume this is a list of game ids which are supposed to be given for free as part of the bonus
-	- exclBonusPlan
-		- I assume that...nothing. I have no clue
-	- 
-	- 
+- [[Eligibility]]
+	- [[Affiliate]]
+		- inclAffs: List(Integer)
+			- I assume this is a list of ids of affiliates included in the bonusPlan
+		- inclAffiliateList: List([[Affiliate]])
+			- I assume this is a list of affiliates included
+			- but what's the difference between this and inclAffs?
+	- [[Account]]
+		- incAccts List(Integer)
+			- I assume this is a list of ids of included accounts
+		- inclAccountList: List(Account)
+			- same as above
+			- why is that one integer, but this one is Account?
+		- exclAccountList: List(Account)
+	- [[Country]]
+		- exclCountries List(String)
+			- I assume this is a list of excluded countries
+		- inclCountryList: List(Country)
+			- I assume this is a list of countries to whom the bonus plan applies. 
+			- why is this a list of Country, while for exclusion Strings are used?
+		- exclCountryList(Country)
+			- why is this a Country, while the first one is a list of Strings?
+	- [[Deposit]]
+		- inclDeptTypeIds: List(String)
+			- i assume this is a list of the type of deposits(?) that are allowed to access the bonusPlan
+		- inclDepositTypeList: List([[Deposit Type]])
+			- I assume this is a list of the types of deposits
+		- exclDepositTypeList
+	- [[Game]]
+		- inclGames: List (Integer)
+			- I assume this is a list of game ids which are supposed to be given for free as part of the bonus
+		- inclConditionGameList List([[Game]])
+			- what is a ConditionGame and why is it a game?
+		- exclGameList: List(Game)
+		- exclConditionGameList List(Game)
+			- same question as beforre
+	- BonusPlan
+		- exclBonusPlan
+			- I assume that...nothing. I have no clue
+		- includedBonusPlanList(BonusPlan)
+		- excludedBonusPlanList
+	- [[BonusPlanPriority]]
+		- bonusPlanPriorityList
+			- I'm at a loss. I have no clue what this means?
+	- [[PlayerGroup]]
+		- playerGroupList
+		- 
 - Condition
 	- conditionType
 	- conditionExpiryDay

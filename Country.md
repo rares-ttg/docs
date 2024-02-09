@@ -1,0 +1,1 @@
+mmeh, pretty clear. Id, name, idAlpha3, idNumeric. The latter two are standard codes. 

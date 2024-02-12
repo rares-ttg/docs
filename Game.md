@@ -7,4 +7,5 @@ Fields
 - mode: String
 	- does something
 - pjEnabled: boolean
-	- has to do with [[Jackpot]]
+	- has to do with [[Jackpot]], particularly with [[Progressive Jackpot]]
+	- 

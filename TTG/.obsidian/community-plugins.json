@@ -1,4 +1,12 @@
 [
   "obsidian-diagrams-net",
-  "obsidian-git"
+  "obsidian-git",
+  "dataview",
+  "juggl",
+  "obsidian-dangling-links",
+  "obsidian-tasks-plugin",
+  "obsidian-icon-folder",
+  "find-unlinked-files",
+  "execute-code",
+  "obsidian-excalidraw-plugin"
 ]

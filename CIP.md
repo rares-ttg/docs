@@ -22,7 +22,7 @@ The headers must contain the [[Affiliate|affiliate's]] username (`Affiliate-Id`)
 ### Process
 
 The credentials, as they should've been called, are then sent to an `AffiliateAuthenticationCommand`, which is in [[ttglib]] and checks the credentials, somehow. Returns a token if it exists, or a new token otherwise.
-- [ ] Really look into how the credentials are checked. 
+- [ ] [CIP]Really look into how the credentials are checked.
 ### Response
 
 There are regular responses, and `T24` responses, corresponding to the same kind of requests. The response headers contain the token, the expiration date, and whether it is a new token or not. So, the headers are

@@ -1,0 +1,3 @@
+- ProcessLoginServlet
+- password seems to be in plain 
+- it checks if the user exists, validates the information, refreshes the status of the user, checks for blacklisting, etc;

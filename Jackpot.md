@@ -1,0 +1,1 @@
+Jackpot is usually tied to casino. Can it be used for other 

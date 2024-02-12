@@ -1,4 +1,4 @@
-Overview : random number generator in cgs casino 
+Overview : random number generator in [[Casino]] 
 
 Algorithm found: Isaac RNG
 

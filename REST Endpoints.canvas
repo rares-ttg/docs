@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"e043ff01b9708e57","x":-942,"y":-608,"width":1102,"height":1013,"type":"group","label":"DataFeed"},
+		{"id":"adcdf32b52b90e40","type":"text","text":"## Financial Services","x":-165,"y":-60,"width":305,"height":50},
+		{"id":"048432d048633ed8","type":"text","text":"### [[ChipTransfer]]","x":-561,"y":-124,"width":250,"height":60},
+		{"id":"d083f9056ffc304f","type":"text","text":"### [[Common Wallet]]","x":-563,"y":-5,"width":250,"height":60},
+		{"id":"a22e21949074d1df","type":"text","text":"## Data Feed Service","x":-167,"y":180,"width":307,"height":60},
+		{"id":"2883faa4230315e1","type":"text","text":"### [[Data Feed]] Type\n\nPOST /datafeed/DataFeedServlet?feedType\n\nThe response depends on the parameter feedType","x":-563,"y":180,"width":250,"height":60},
+		{"id":"0686314da5c9b9b6","type":"text","text":"### Journal [[Transaction]]\n\nPOST /cip/transaction/{partnerId}/{ext transaction id}\n\n###### Parameters\n- ext transaction id - *required*. The unique transaction Id for the external system\n- uid - *required*. Unique Identifier. 255 characters max\n- amount - The amount to be transferred. may be positive or negative\n- partnerId - *required*. [[Affiliate#Identifier| affiliate identifier]]\n###### Response\n\nReturns a retry flag. 1 to indicate that it is a retry, 0 to indicate that it is not. If retry, no money transaction will be performed.","x":-922,"y":-160,"width":250,"height":60},
+		{"id":"7fb8e1b89e636465","x":-921,"y":-70,"width":250,"height":60,"type":"text","text":"### Check Add [[Chip|Chips]]\n\nGET /cip/transaction/{partnerId}/{ext transaction ID}\n\n#### Parameters\n\n- ext transaction id - *required* the unique [[Transaction|external transaction id]]\n- partnerId - *required* [[Affiliate|affiliate]] that the transaction is made under"},
+		{"id":"794cea494c0e9e41","type":"text","text":"#### [[Daily Activity]] Summary\n\nin this case feedType=DASFeed. \n\n##### Parameters:\n- format=xml - *required*. The response format\n- Cur - *required*. The currency in which all monetary values are to be represented in\n- startDate/endDate - The interval to search on. endDate is required if startDate specified. This makes little sense, since if endDate is specified, you should be able to return DAS for all days up to endDate\n##### Response\n\nThe response includes \n- username\n- user [[Country]]\n- [[AffiliatePath]]\n- [[Product]]\n- Total Revenue\n- NoOfWagers\n- MoniesWagered(sic!)\n- [[Currenc|Curr]] \n- Value\n","x":-921,"y":75,"width":250,"height":80},
+		{"id":"23b98333be5232d5","type":"text","text":"#### [[Current Player Balance]]\n\nIn this case feedType=CPBFeed\n\n##### Parameters\n- format=xml - *required* - the response format\n- cur - *required*. [[Currency]]\n- startDate/endDate\n##### Response\n\nThe response includes\n- username\n- user [[Country]]\n- [[AffiliatePath]]\n- Current user [[Balance]] ( #why user? why not player? That's its fucking name!)\n- List of [[Conversion Rate]]","x":-921,"y":200,"width":250,"height":80},
+		{"id":"1c336fd8f499830b","type":"text","text":"#### [[Tournament#LeaderBoard| Tournament Leader Board]] \n\nfeedType=TLBFeed\n\nThis returns the top players in any particular [[Game]]\n##### Parameters\n- format=xml\n- rowCount - *required* The number of players to be sent back. Cannot be larger than the total number of players? #why not? You can just do a min on (maxNumPlayers, rowCount)\n- period - *required* The period of time for which you want to bring back the top players. Values:\n\t- yesterday\n\t- Week\n\t- Month\n\t- Year\n\t- Ltd (all to date)\n\t- Reset - resets tables, currency list and currency rates\n- cur - *optional* [[Currency]] for representation. Defaults to all currencies #why \n- curOut - *optional* the currency that all monetary values are to be converted to\n- affiliate - *optional* The affiliate for which the data should be relative to\n- incSubAff- *optional* should include sub affiliates\n- gameDesc *optional* top players for which games?\n","x":-921,"y":325,"width":250,"height":60},
+		{"id":"78f64634dff71b0e","type":"text","text":"#### Update user\n\nPUT /cip/player/{uid}\n\nUpdates player country, firstName, lastName, and toggles active status","x":-565,"y":-292,"width":250,"height":60},
+		{"id":"21661b0aecd31419","type":"text","text":"#### Balance\n\nGET /cip/player/{uid}/balance\n\nReturns the account currency, and a [[Balance]] which includes deposit, withdrawable, playable, totalPlayable and totalWithdrawable","x":-565,"y":-220,"width":250,"height":60},
+		{"id":"4f830f5c47f3f185","type":"text","text":"#### Login\nPOST /cip/gametoken/{uid}","x":-565,"y":-588,"width":250,"height":60},
+		{"id":"4eb490fae75147b4","type":"text","text":"#### Existence\n\nGET /cip/player/{uid}/existence","x":-565,"y":-440,"width":250,"height":60},
+		{"id":"0e1588d13611000c","type":"text","text":"#### Account\n\nGET /cip/player/{uid}/existence\n\nChecks if a user exists","x":-565,"y":-366,"width":250,"height":60},
+		{"id":"ae9507760603968d","type":"text","text":"#### Logout\n\nDELETE /cip/gametoken/{gametoken}","x":-565,"y":-514,"width":250,"height":60},
+		{"id":"f4ae6e6c7bb6f363","type":"text","text":"## Player Services","x":-167,"y":-408,"width":307,"height":56}
+	],
+	"edges":[
+		{"id":"cf661ccdde801604","fromNode":"adcdf32b52b90e40","fromSide":"left","toNode":"048432d048633ed8","toSide":"right"},
+		{"id":"502cb32b3e58b3fb","fromNode":"adcdf32b52b90e40","fromSide":"left","toNode":"d083f9056ffc304f","toSide":"right"},
+		{"id":"9fecd2ec32c7d75d","fromNode":"f4ae6e6c7bb6f363","fromSide":"left","toNode":"4f830f5c47f3f185","toSide":"right"},
+		{"id":"5daa8a4b0d790057","fromNode":"f4ae6e6c7bb6f363","fromSide":"left","toNode":"ae9507760603968d","toSide":"right"},
+		{"id":"30a9a137c2d03cb6","fromNode":"f4ae6e6c7bb6f363","fromSide":"left","toNode":"4eb490fae75147b4","toSide":"right"},
+		{"id":"606a50c403f60680","fromNode":"f4ae6e6c7bb6f363","fromSide":"left","toNode":"0e1588d13611000c","toSide":"right"},
+		{"id":"6f2b48992b7ceca3","fromNode":"f4ae6e6c7bb6f363","fromSide":"left","toNode":"78f64634dff71b0e","toSide":"right"},
+		{"id":"3205096b3546f2f5","fromNode":"f4ae6e6c7bb6f363","fromSide":"left","toNode":"21661b0aecd31419","toSide":"right"},
+		{"id":"9b7620bb955b99ce","fromNode":"048432d048633ed8","fromSide":"left","toNode":"0686314da5c9b9b6","toSide":"right"},
+		{"id":"69aca99cc0059036","fromNode":"a22e21949074d1df","fromSide":"left","toNode":"2883faa4230315e1","toSide":"right"},
+		{"id":"e1f530f8e1db61fc","fromNode":"2883faa4230315e1","fromSide":"left","toNode":"794cea494c0e9e41","toSide":"right"},
+		{"id":"68584a07138aec88","fromNode":"2883faa4230315e1","fromSide":"left","toNode":"23b98333be5232d5","toSide":"right"},
+		{"id":"7a98709ab5b6fe7f","fromNode":"2883faa4230315e1","fromSide":"left","toNode":"1c336fd8f499830b","toSide":"right"},
+		{"id":"884ba1ee1ee43a8f","fromNode":"048432d048633ed8","fromSide":"left","toNode":"7fb8e1b89e636465","toSide":"right"}
+	]
+}

@@ -1,0 +1,1 @@
+It is somehow related to [[Affiliate]], but it is not entirely clear yet. Appears in [[REST Endpoints.canvas|REST Endpoints]] in [[Data Feed]].

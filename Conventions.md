@@ -35,7 +35,7 @@ Document covering all the code conventions in TTG.
 #### Packages
 
 
-
+### Exceptions
 ### Class
 
 #### Comment
@@ -61,6 +61,7 @@ If code is packaged as libraries, the following rules apply: #TBD
 
 #### Naming
 
+
 ### DataSource
 
 Table names, column names, etc. #TBD
@@ -68,6 +69,13 @@ Table names, column names, etc. #TBD
 ## Architecture
 
 ### Constants and configurations
+### Error Handling
+
+#### Domain
+#### Module
+#### Infrastructure
+
+
 ### DTOs
 ### REST
 

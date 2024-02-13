@@ -1,6 +1,7 @@
 ---
 tags:
-  - legacy
+  - "#legacy"
+  - "#game"
 aliases:
   - CGS casino
 ---
@@ -51,4 +52,4 @@ There are 33 games:
 	3. [[Roulette No Comission]]
 5. Lotto
 	1. [[Pulltab]]
-6. 
+	

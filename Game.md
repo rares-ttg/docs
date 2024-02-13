@@ -26,15 +26,18 @@ All of them. And I mean really all of'em. From all 11 classes. The basis is the 
 
 - #field/gameId - [[Game Identity]]
 - gameName
+- gameDescription
+	- This one is in `com.chartwelltechnology.server.game`
 - mode: String
 	- might have something to do with pjMode
-- pjMode: GamePJMode
-	- found in  Game class in `com.chartwellltechnology.server.game`
-- pjEnabled: boolean
-	- I assume it has to do with [[Jackpot]], particularly with [[Progressive Jackpot]]
-- pjWinChannelId: int
-- gameIdForMPJ: int
-	- not used, probably has to do with [[Mystery Jackpot]]
+- [[Progressive Jackpot]]
+	- pjMode: GamePJMode
+		- found in  Game class in `com.chartwellltechnology.server.game`
+	- pjEnabled: boolean
+		- I assume it has to do with [[Jackpot]], particularly with [[Progressive Jackpot]]
+	- pjWinChannelId: int
+	- gameIdForMPJ: int
+		- not used, probably has to do with [[Mystery Jackpot]]
 - groupId
 	- probably links to [[Game Group]]
 - groupName:
@@ -43,7 +46,7 @@ All of them. And I mean really all of'em. From all 11 classes. The basis is the 
 - paramProperties
 - gameStatus: int #what
 - scopeId: int
-	- #what is a game scope? Is it a thing?
+	- [[Game Scope]]
 - inCyberBossReports: int #what 
 	- why is it an int and not a boolean?
 - bonusMoneyAllowed: int 
@@ -58,3 +61,6 @@ All of them. And I mean really all of'em. From all 11 classes. The basis is the 
 	- I don't know yet #how the eligibility is to be determined.
 - bonusGameId: String
 	- #why string when gameIds are int?
+
+# GameSettings
+

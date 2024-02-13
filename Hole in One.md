@@ -1,0 +1,1 @@
+It is a slot game, a re-skin of [[Fast Track]] and [[Hollywood Reels]]

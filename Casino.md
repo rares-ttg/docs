@@ -1,7 +1,7 @@
 ---
 tags:
   - "#legacy"
-  - "#game"
+  - "#game-collection"
 aliases:
   - CGS casino
 ---

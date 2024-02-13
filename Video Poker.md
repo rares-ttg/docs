@@ -1,3 +1,6 @@
 ---
-aliases: []
+aliases: 
+tags:
+  - game/cards/poker
+  - legacy
 ---

@@ -2,7 +2,9 @@
 aliases:
   - Tai Sai
   - Dai Siu
-  - Hi-lo
+tags:
+  - game/dice
+  - legacy
 ---
 
 

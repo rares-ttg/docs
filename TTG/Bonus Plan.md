@@ -99,11 +99,11 @@ It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bon
 
 | Acr | name |
 | ---- | ---- |
-| PFF | Play For Fun |
-| PFM | Play For Money |
+| [[PFF]] | Play For Fun |
+| [[PFM]] | Play For Money |
 | LPJ | Linked Progressive Jackpot |
 | EGI | External Game Integration |
-| PJ  | Progressive Jackpot |
-| MPJ | Multi Progressive Jackpot |
+| [[PJ]]  | Progressive Jackpot |
+| [[MPJ]] | Multi Progressive Jackpot |
 
 

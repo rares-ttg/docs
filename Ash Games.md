@@ -1,0 +1,16 @@
+---
+tags:
+  - "#legacy"
+  - game-collection
+---
+- [[Amazon Wild]]
+- [[Bingo Keno]]
+- [[Darts]]
+- Sports Bets
+	- [[Final Score]]
+- [[Gold Rush Showdown]]
+- [[Hi-lo]]
+- [[Keno]]
+- [[Pinball Roulette]]
+- [[BlackJack]]
+- [[Showdown Poker]]

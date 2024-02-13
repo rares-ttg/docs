@@ -1,5 +1,9 @@
 Document covering all the code conventions in TTG. 
 - [[#Code|Code]]
+	- [[#Code#Testing|Testing]]
+		- [[#Testing#Class name|Class name]]
+		- [[#Testing#Test name|Test name]]
+		- [[#Testing#Packages|Packages]]
 	- [[#Code#Class|Class]]
 		- [[#Class#Comment|Comment]]
 		- [[#Class#Naming|Naming]]
@@ -18,8 +22,20 @@ Document covering all the code conventions in TTG.
 	- [[#Architecture#Class level|Class level]]
 	- [[#Architecture#Module level|Module level]]
 	- [[#Architecture#Service|Service]]
+- [[#Deployment|Deployment]]
 
 ## Code
+
+### Testing
+
+#### Class name
+
+#### Test name
+
+#### Packages
+
+
+
 ### Class
 
 #### Comment
@@ -63,7 +79,9 @@ Table names, column names, etc. #TBD
 
 ### Service
 
+## Deployment
 
+Conventions for pipeline definitions, naming, configurations, etc.
 
 
 

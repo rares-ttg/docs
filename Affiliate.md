@@ -80,4 +80,6 @@ See ![[Partner System.svg]]
 	2. #field/brokerId
 	3. #field/playerId 
 
-	
+## State
+
+Can be active/inactive.

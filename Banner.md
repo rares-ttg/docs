@@ -1,0 +1,1 @@
+A banner also appears to be a type of [[Affiliate]] , according to [[AffTypes]]

@@ -1,7 +1,11 @@
 ---
 aliases:
-  - NetWin
+  - NetWinTab
 ---
+
+
+## NetWinTab
+
 NetWinTab is a class which configures the visualisation configuration of NetWin for [[Affiliate]],[[Game]],[[GameSuite]],[[GameProfile]],[[GameDeviceType]],month,day, [[Player]], [[Account]], [[Country]], all of the previous, or NO_DAY(??)
 Fields
 - Flags (booleans)

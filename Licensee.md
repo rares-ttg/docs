@@ -1,0 +1,1 @@
+A licensee is a kind of [[Affiliate]] and is the running system.

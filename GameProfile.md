@@ -1,3 +1,10 @@
+---
+tags:
+  - "#table/Game_Profile"
+  - "#code"
+  - "#legacy"
+---
+
 Game Profiles can be activated or de-activated. When such an operation occurs, some actions need to be taken. Class [[GdkGameChangeAction]] defines the type of actions that must be performed on de/activating a Game Profile. While the class appears in [[Backoffice]], there is an interface of the same name in `com.cwh.gdk.game.ash.amazonwild.gdk.model`. So it is related to [[Ash Games]] somehow.
 
 From this perspective, there are two kinds of games: Those that do their own processing (of #what) and those that expect the system to do it for them (auto-completion). If the game opts for autocomplete, then the game should tell the system which game request marks the end of a game round. Without this information, the system will not be able to identify the time to perform default processing. If the needs to update historical data after that, it should also specify the class definition of the updater. (Paragraph taken from comment in `com.cwh.gdk.common.pojo.GdkGameChangeAction`).

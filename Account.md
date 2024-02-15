@@ -11,7 +11,7 @@ Fields
 	- #field/curName
 		- because id and code is not enough
 	- currencyScale
-		- this is an #enigma
+		- this is an #why
 - #field/modifiedByGid
 	- the [[Global Identity]]  of whoever created the account.
 - [[AccountType]]

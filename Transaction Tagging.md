@@ -1,0 +1,1 @@
+See [[Rule of Affiliate Transaction Tagging]]. You can find something in `Ratt` or `RattType`

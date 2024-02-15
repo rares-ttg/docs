@@ -1,0 +1,1 @@
+This is a group of [[Affiliate]] s. Found in `com.cwh.xboss.tasks.AffGroupingTask`.

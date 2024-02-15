@@ -29,12 +29,13 @@ Allows the player to view their loyalty points transactions.
 The player can redeem their bonus points
 
 #### [[Parlay]] [[Replay]]
+`ParlayReplaySummaryTask`
 
 I have no clue. I assume it is a negotiation process for games that seem dubious to the casino.
 
 #### View personal details
 
-In an odd twist, the class called `PersonalDetailsTask` does NOT allow users to change their personal details. It is part of an #enigma  called [[SNG]] Project.
+In an odd twist, the class called `PersonalDetailsTask` does NOT allow users to change their personal details. It is part of an #why  called [[SNG]] Project.
 #### Disable account
 
 `PlayerAccountDisableTask`
@@ -54,6 +55,29 @@ The reason it is no longer is use is probably because there are several Poker ga
 #### View Bank Details
 
 This is not in use. `PlayerBankDetailsTask`. It allows a user to view Bank Details.
+
+#### Change Address
+
+This is not in use, apparently. `PlayerChangeAddressTask`.
+
+#### View [[Game Transaction]] Summary
+
+This allows the player to view the transactions per game. `PlayerGameTransactionSummaryTask`.
+
+#### View Game Replay Summary
+
+Class `PlayerHandReplaySummaryTask`. The player can view [[Replay|replays]] of previous games. 
+
+
+#### View [[Promotions]] Summary
+
+`PlayerMyPromotionsTask`.  Does not seem to be used. Although the class is not used, the functionality might be implemented somewhere else.... because reasons. Allows players to view their promotions. #what promotions are is not known yet
+#### View [[Class Player Profile|Profile]] Summary
+
+`PlayerProfileSummaryTask` This generates a player profile report. The information included: Profile name from [[GameProfile]], [[Game Group]]  name . But the select shown in the class only looks for group name "Poker" and "Tournaments". 
+Other information comes in the form of a [[PlayerProfileObj]] and includes [[Game Play Information]]:
+	- [[NetWin]] - this is a [[NetWinInfo]] class. 
+	-  [[Class Player Profile]] class 
 
 ### [[Compensation Package]]
 #### Add [[Compensation Package]] to an Affiliate
@@ -133,7 +157,7 @@ Creates a banner [[Affiliate]] which contains a tracking code that can be used t
 `com.cwh.xboss.tasks.affcomp.CreateCompSchTask`
 
 
-### Immediate [[Reconcilliation]]
+### Immediate [[Reconciliation]]
 
 `com.cwh.xboss.tasks.affcomp.ReconcileNowTask`
 

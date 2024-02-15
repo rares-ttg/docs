@@ -1,0 +1,1 @@
+Partner is the default kind of [[Affiliate]]. TTGS delivers games to a partner

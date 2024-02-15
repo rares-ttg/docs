@@ -22,9 +22,9 @@ Fields:
 	3. availableBalance
 12. userAccount: UserAccount
 13. drillDownEnabled: boolean=true
-	1. I have no idea what this is about. The only reference found was in the frontend ts files. Seems to have to do with [[NetWinTab]]
+	1. I have no idea what this is about. The only reference found was in the frontend ts files. Seems to have to do with [[NetWin]]
 14. totalRowMajorSort
-	1. [[NetWinTab]] related. 
+	1. [[NetWin]] related. 
 15. countryId: String
 	1. whose country? Why not a damn foreign key? 
 Figure 1 ![[Partner System.svg]]

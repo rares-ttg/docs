@@ -1,4 +1,3 @@
-
 ## Game Collections
 
 ```dataview

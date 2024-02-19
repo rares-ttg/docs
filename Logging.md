@@ -1,0 +1,22 @@
+---
+tags:
+  - concern/logging
+---
+There are some configurations that the legacy code has and it is a question whether they should be included in the #rewrite . The [[Configurations#casino.server.Configuration|Configuration]]  file has the following config entries for logging:
+- logging folder;
+- max log file size
+- number of log file generations
+- number of log records buffered
+- whether logging should append to the logfile (what is the alternative?)
+- the log level
+- a mysteryous `memoryHandlerTriggerLevel="SEVERE"`.
+- the debug log file 
+- logging formatter
+- whether to log to the console
+- whether the class should appear in logging (isn't it obvious? Why is this even a choice?)
+- whether the method name should appear in logging(how exactly are they doing debug without method name?)
+- whether timestamps should appear in logging. 
+- a map of logging filters
+- and the class name, as a String #fml/type-hell, of the logging properties reader.
+	- why have another one?
+- 

@@ -37,7 +37,7 @@ All of them. And I mean really all of'em. From all 11 classes. The basis is the 
 		- I assume it has to do with [[Jackpot]], particularly with [[Progressive Jackpot]]
 	- pjWinChannelId: int
 	- gameIdForMPJ: int
-		- not used, probably has to do with [[Mystery Jackpot]]
+		- not used, probably has to do with [[Mystery Progressive Jackpot]]
 - groupId
 	- probably links to [[Game Group]]
 - groupName:

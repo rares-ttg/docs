@@ -1,0 +1,1 @@
+This game play information is in the form of a [[PlayerProfileObj]] class. look at that class for info.

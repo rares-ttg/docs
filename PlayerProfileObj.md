@@ -7,7 +7,7 @@ submodule: cgslib
 module: cgs
 ---
 This holds a [[Class Player Profile]]. 
-Contains [[User Data]], [[Game Session]] information and  [[Game Play Information]].
+Contains [[User Data]], [[Game Session]] information and  [[Player Game Play Information]].
 
 # Fields
 ## Constants
@@ -47,7 +47,7 @@ Contains [[User Data]], [[Game Session]] information and  [[Game Play Informatio
 - [[Money]] `totalBet`
 	- The total amount of money the player bet in general? #business/process  #what 
 - [[Money]] `returnToPlayer`
-	- I'm assuming it's how much the player got back from what he bet. #bet
+	- I'm assuming it's how much the player got back from what he bet. 
 - [[Money]] `aveBet`
 	- The average amount the user bet? #business/process #what 
 - [[Money]] `netWinLoss` 

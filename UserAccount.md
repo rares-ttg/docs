@@ -16,6 +16,5 @@ Fields:
 - pendingBalance
 	- ummm...dafuq? #what
 
-A conceptual field is `accountBalance`. There is a getter that basically sums balance, playable balance and withdrawable balance. 
-Another is `totalWithdrawable`, which is `balance + withdrawableBalance`. 
+A conceptual field is [[Account]] [[Balance]]. There is a getter that basically sums balance, [[Playable]] balance and [[Withdrawable]] balance. Another is `totalWithdrawable`, which is `balance + withdrawableBalance`. 
 

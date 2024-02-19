@@ -1,1 +1,1 @@
-This appears several times, in [[Common Wallet]] 
+This appears several times, in [[Common Wallet]] . A player opens a [[Dispute]]  which then has to  be reconciliated.

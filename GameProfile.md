@@ -20,8 +20,7 @@ From this perspective, there are two kinds of games: Those that do their own pro
 	- affName 
 		- The affiliate's name? Why not an Id?
 		- does Game Profile apply only to games sent to Affiliates? #why 
-- suiteId
-	- Is it suiteId or #field/siteId ?
+- #file/suiteId
 - State
 	- activeint 
 	- #what is this about? what depends on this?
@@ -30,6 +29,8 @@ From this perspective, there are two kinds of games: Those that do their own pro
 	- #field/curId
 - [[Account]]
 	- outputAccId
+	- inputAccId
+		- not used
 - [[Linked Progressive Jackpot]]
 	- lpjGameProfile: int
 		- #why ? is this a flag or an id?
@@ -55,9 +56,18 @@ Methods:
 - getMaxWinnings: Money
 - getProfileElement: jdom.Element
 
+
+
 ### Implementations
 
 An implementation of the interface is `DefaultProfile` which appears to be configured from an XML. `DefaultProfile` is implemented by `SlotsProfile`,`ShuffleProfile`, and `AmazonWildProfile`, but only the latter seems to be implemented. 
+
+## com.chartwelltechnology.server.game
+
+This is another GameProfile class #fml . It has the same fields as the GameProfile class from [[Backoffice]]. **However**, `inputAccount` field is used here and, there are some extra fields not present in the Backoffice class. Here some validation constraints are introduced
+- groupName cannot be null #data/validation 
+	- it is a required property in the schema and should always be part of GameProfile #why 
+	- 
 
 # GameProfileSettings
 

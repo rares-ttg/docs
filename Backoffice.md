@@ -1,3 +1,9 @@
+---
+tags:
+  - module
+  - "#legacy"
+---
+
 Technology stack: 
 - nodejs calling java code.
 Overview:

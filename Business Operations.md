@@ -1,3 +1,8 @@
+---
+tags:
+  - business/operations
+---
+
 # CGSLib
 
 The following are from cgs lib, the `com.cwh` packages. I assume they have to do with the common wallet. 
@@ -75,9 +80,10 @@ Class `PlayerHandReplaySummaryTask`. The player can view [[Replay|replays]] of p
 #### View [[Class Player Profile|Profile]] Summary
 
 `PlayerProfileSummaryTask` This generates a player profile report. The information included: Profile name from [[GameProfile]], [[Game Group]]  name . But the select shown in the class only looks for group name "Poker" and "Tournaments". 
-Other information comes in the form of a [[PlayerProfileObj]] and includes [[Game Play Information]]:
+Other information comes in the form of a [[PlayerProfileObj]] and includes [[Player Game Play Information]]:
 	- [[NetWin]] - this is a [[NetWinInfo]] class. 
 	-  [[Class Player Profile]] class 
+	- 
 
 ### [[Compensation Package]]
 #### Add [[Compensation Package]] to an Affiliate

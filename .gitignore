@@ -86,9 +86,12 @@
 .obsidian/workspace.json
 .obsidian/workspace.json
 .obsidian/manifest.json
+.obsidian/*/main.js
 Github token.md
 .DS_Store
 app.json
 appearance.json
 workspace.json
-
+main.js
+mainfest.json
+styles.css

@@ -57,7 +57,8 @@ note over DbConnection
 	yes, again
 end note
 Configuration ->DbConnection: pool.getConnection()
-Configuration->db: "select pname,pvalue,affId from CasinoProperties"
+Configuration-[#red]>db: "select pname,pvalue,affId from CasinoProperties"
+db-[#red]>Configuration: casino properties values
 group#red while [iterate over select results]
 	note right
 		fillKey is the method with\n
@@ -72,7 +73,8 @@ note right
 end note
 Configuration-> AccountTypes: findAccounTypeNames()
 activate AccountTypes
-AccountTypes->db:"select accName From account where..."
+AccountTypes-[#red]>db:"select accName From account where..."
+db-[#red]>AccountTypes: account data
 AccountTypes->Configuration: Vector accountnames
 deactivate AccountTypes
 deactivate Configuration
@@ -85,7 +87,6 @@ activate Configuration
 group#red for-loop [loop over the configuration for each affiliate]
 	group#red for-loop [iteration over each affiliate's properties]
 		Configuration -> Configuration: <font color="red">fillKey(pname,pvalue,propertyAffId)</font>
-
 	end
 end 
 deactivate Configuration
@@ -106,10 +107,10 @@ MiniAff->AffStore: new AffStore()
 MiniAff->AffStore: getMiniAff(this)
 activate AffStore
 AffStore->AffStore: findMiniAff(miniAff)
-activate AffStore
-AffStore->DbConnection: pool.acquire()
-AffStore->db: "select....from Affiliate join AffToRatt LO Join AffHierarchy"
-db->AffStore: Affiliate data
+activate AffStore #green
+AffStore->DbConnection: [[[pool.acquire()]]]
+AffStore-[#red]>db: "select....from Affiliate join AffToRatt LO Join AffHierarchy"
+db-[#red]>AffStore: Affiliate data
 create AffType
 AffStore->AffType: new AffType()
 AffType->DbConnection: pool.getConnection()
@@ -118,23 +119,40 @@ AffType-[#red]>db: "select ... from AffType"
 db-[#red]> AffType: affTypeData
 AffType->AffStore: AffType object
 create RattType
-AffStore->RattType: new RattType()
+AffStore->RattType: new [[[RattType]]]()
 activate RattType
 RattType->RattType: init()
-RattType->DbConnection: pool.acquire()
-dbConnection->RattType: DbConnection
-RattType-[#red]> db: 
+RattType->DbConnection: [[[pool.acquire()]]]
+DbConnection->RattType: DbConnection
+RattType-[#red]> db: select ... from Ratt
+db-[#red]>RattType: [[Rule of Affiliate Transaction Tagging|Ratt]] info
+RattType->AffStore
+deactivate RattType
+
 AffStore->MiniAff: MiniAff
 deactivate AffStore
 MiniAff-> AffHier: MiniAff
 deactivate MiniAff
 |||
-AffHier->AffHier: init()
-AffHier->AffStore: getAffHier(this)
-activate AffStore
-AffStore->DbConnection: pool.getConnection()
-AffStore->db: "selectChildId from affhierarchy where parentId=?"
-db->AffStore: affHierarchy
+group#red recursive call to AffHier init()	
+	AffHier->AffHier: init()
+	AffHier->AffStore: getAffHier(this)
+	activate AffStore
+	AffStore-[#red]>DbConnection: pool.getConnection()
+	DbConnection-[#red]>AffStore: DbConnection
+	AffStore-[#red]>db: "selectChildId from affhierarchy where parentId=?"
+	db-[#red]>AffStore: affiliate children 
+	group#red while [iterate over children]
+		
+			create AffHier
+			AffStore->AffHier: new AffHier()
+			activate AffHier #red
+			AffHier->AffHier: <font color="red">init</font>
+			AffHier->AffStore: AffHierarchy
+			deactivate AffHier
+		
+	end
+end
 AffStore->AffHier: affiliate hierarchy
 deactivate AffStore
 AffHier->Configuration: AffHier

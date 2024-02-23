@@ -1,4 +1,4 @@
-An affiliate is any external system that receives games from the TTG System. There are two kinds of Affiliates, [[Partner]] and [[Webmaster]]. A partner is any other app which serves games hosted on TTGS. A Webmaster is only an advertiser, i.e. has a banner on his website which links to a Partner site or to TTGS.
+An affiliate is any external system that receives or sends games from the TTG System. Affiliates that give games to TTG can be found in #table/Broker and are called [[Broker]]s. A complete list of affiliates is in [[AffTypes]] . Partners and webmasters are all those that receive games from TTG. 
 
 See ![[Partner System.svg]]
 

@@ -20,4 +20,6 @@ Fields
 		- so there can be more Accounts for the same currency
 	- bankable: int
 		- Shouldn't this be a boolean? I'm assuming it's just 1 or 0
-	
+## Player
+
+The player too has an account. Several, actually.

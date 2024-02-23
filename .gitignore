@@ -95,3 +95,6 @@ workspace.json
 main.js
 mainfest.json
 styles.css
+data.json
+lucide-icons.zip
+core-plugins.json

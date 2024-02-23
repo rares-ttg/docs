@@ -1,0 +1,1 @@
+Corresponds to table #table/codedBonusRange . It is tied to [[Coded Bonus]]

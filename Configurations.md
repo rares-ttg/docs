@@ -13,10 +13,25 @@ Some properties concern [[Logging]] , others configure the various servers to wh
 - `sdkserver`
 - `gamesserver`
 - `bankserver`
+- `AlternateServerUrl` #what ???
+- `casinoFlashServletUrl` 
+		- I assume this is no longer used.
+- `String siteIdAttr`- is this #field/siteId ? #what 
+- `imageDir` #what
+	- folder to upload images to
+	- or folder to store images used in app? Wouldn't surprise me. 
+- `soundDir` #what
+		- folder for sounds
+- `String userAccount[]=new String[0]` #what #why 
+	- what is this array for?
+- `String bottomlessAccount[]=new String[0]` #what  is this?
+- `bottomlessAmount`
+- `bottomlessMinimum`
+- `String accounts` #what
 ## Casino
 - siteIp
 	- related to #field/siteId ?
-## [[Registation]]
+## [[Registration]]
 - `registrationCancelRedirectURL`
 - `registrationBaseTemplateURL`
 - `registrationCasinoURL`
@@ -74,26 +89,24 @@ is it [[User Account]] instead?
 - `countryCode`
 - `countriesExcluded`
 
-	- `AlternateServerUrl` #what ???
-	- `casinoFlashServletUrl` 
-		- I assume this is no longer used.
-	- `String siteIdAttr`- is this #field/siteId ? #what 
-	- `imageDir` #what
-		- folder to upload images to
-		- or folder to store images used in app? Wouldn't surprise me. 
-	- `soundDir` #what
-		- folder for sounds
-	- `String userAccount[]=new String[0]` #what #why 
-		- what is this array for?
-	- `String bottomlessAccount[]=new String[0]` #what  is this?
-	- `bottomlessAmount`
-	- `bottomlessMinimum`
-	- `String accounts` #what
 ## [[Banking]]
+
+public static int bankDetailTxnSubType = -1;  
+public static Map bankNumPmtAcctAllow = new HashMap();  
+
 - `boolean enableBanking=false` #business/process 
 	- #why isn't this enabled by default? 
 	- does it have to do with [[PFF]] and [[PFR]]?
-### [[Bonus]]
+## [[Bonus]]
+
+// Temporary Parameters for Bonus Coupons  
+public static boolean couponEnableRedemption = false;  
+public static int couponRegistrationBonus = 0;  
+
+// Sleep/Counts for BonusHandlers  
+private static final String EVENT_CONFIG_HANDLER = "event.config.handler";  
+public static Map handlerProperties = new Hashtable();  
+
 - `enableNewBonus=false` #business/process 
 	- this has to do with [[Bonus]] but I don't know #how yet
 - `boolean enableBonus=true` same as above
@@ -109,10 +122,21 @@ is it [[User Account]] instead?
 	- This is how many seconds the [[GPBonusPlanLoader]] should sleep to refresh memory #what ?
 - `eventWriteBonus=false`
 	- #what is this?
-- `bolean brokerTriggerBonus` #business/operations
+- `bolean` #configuration/brokerTriggerBonus  #business/operations
 	- this has to do with [[Broker]] [[Bonus|bonuses]], but #what?
 -  `totalRewardsLevel=0`
 	- #what
+
+
+### [[Deposit]]
+- `String minDepositAmount = null;`
+	- //Configurable deposit Amount  
+- `String dailyMaxDepositAmount = null;  `
+- `String weeklyMaxDepositAmount = null;  `
+- `String monthlyMaxDepositAmount = null;  `
+- `String depositLimitWaitingPeriodDays = null;  
+- `boolean forceGameType = false;`
+		- //Resume configuration   
 ## [[Notifications]]
 - `minutesForSearchAlerts`
 	- #what are search alerts?
@@ -152,7 +176,8 @@ is it [[User Account]] instead?
 - `boolean checkLSD=true` #what 
 - [[Bingo]] - Bingo75 and 90 stats interval  
 	- `statsUpdateInterval = 60; // In terms of seconds`
-### Configurable [[Slots]]
+### Slots
+#### Configurable [[Slots]]
 - `int treasureChestLevel = 0`
 - `golfLevel=0`
 - `int fruitBasketLevel=0`
@@ -181,6 +206,20 @@ is it [[User Account]] instead?
 - - `boolean processBingoEvent=false` #what #business/event 
 - `int bingoPayoutType=1` 
 	- #what does 1 mean?!?!
+
+#### Generic Slots 
+Generic Slots Test Mode  
+public static boolean genericSlotsTestMode = false;  
+### Poker  
+public static String pokerRulesPath = "";  
+public static int pokerCountdown = 30000;  
+public static int pokerLobbyCache = 0;  
+public static boolean pokerProtocolXML = true;  
+public static boolean pokerProtocolString = false;  
+public static boolean logReplay = false;  
+public static boolean logFunGames = false;  
+public static boolean pokerIpRestriction = false;  
+public static int pokerSitNGoDelay = 0;  
 ## Database
 - [[DbPortability]] `DBP` #what?
 	- not the most portable application, so why did they even try?
@@ -196,18 +235,12 @@ is it [[User Account]] instead?
 - `int sharedCleanupInterval = 0;`
 - `int sharedStateLife = 0;`
 - `int clockEngineInterval = 0;`
-	- // Com.Chartwell.Commom.Clock  
-## [[Deposit]]
-- `String minDepositAmount = null;`
-	- //Configurable deposit Amount  
-- `String dailyMaxDepositAmount = null;  `
-- `String weeklyMaxDepositAmount = null;  `
-- `String monthlyMaxDepositAmount = null;  `
-- `String depositLimitWaitingPeriodDays = null;  
-- `boolean forceGameType = false;`
-		- //Resume configuration   
+	- // Com.Chartwell.clock something
   
 ## Xboss  
+
+// Cyberboss  
+public static int cbMainMenuForClient = 0;   // 0 - standard, 1 - for client  
 
 public static String xbossPresentationURI = null;  
 public static String xbossURI = null;  
@@ -220,22 +253,27 @@ public static String xbossWebAppName = null;
 public static String xbossServerURI = null;  
 private static String siteReportingCurrency = null;  
 
+// both xbossSearchablesURI and xbossSortablesURI should eventually be removed.  
+public static String xbossSearchablesURI = null;  
+public static String xbossSortablesURI = null;  
+These two are not used. They seem to have been removed
 ### Transactions
+
 public static int playerTransactionMaxRowQuerySize = 10000;  
 public static int transactionMaxRowQuerySize = 10000;  
   
 ### UserInfo
 
 public static String userinfoTaskServletURI = null;  
-  
-// both xbossSearchablesURI and xbossSortablesURI should eventually be removed.  
-public static String xbossSearchablesURI = null;  
-public static String xbossSortablesURI = null;  
+
+## Date Formats
 public static String dbDateRegEx = null;  
 public static String inputDateRegEx = null;  
 public static String dbDatePattern = null;  
 public static String inputDatePattern = null;  
-  
+
+## Stylesheets
+
 //stylesheets loaded from class & folder  
 public static String stylesheetsLoadClass = null;  
 public static boolean stylesheetsReload = false;  
@@ -243,18 +281,18 @@ public static boolean stylesheetsReload = false;
 //stylesheets TransformerFactory system property  
 public static String stylesheetsTransformerKey = null;  
 public static String stylesheetsTransformerValue = null;  
+### Replay stylesheets
 public static String replayStylesheetTransformerValue = null;  
-  
+## EGI 
+
 // EGI related Properties  
 public static boolean egiPresent = false;  
 public static String egiIntegrationService = "chartwell";  
   
 public static String transactionServerURL = "";  
 public static int transactionServerConnectionTimeOut = 30000;  
-  
-// Cyberboss  
-public static int cbMainMenuForClient = 0;   // 0 - standard, 1 - for client  
-  
+public static boolean enableEGIResumeCheck = false;  
+## [[RNG]]
 // RNG  
 public static int seedSize = 0;  
 public static String rngServerURL = "";  
@@ -262,21 +300,20 @@ public static int rngRange = 0;
 public static boolean isConnectToRNGServer = false;  
 public static int batchLimitPercent = 0;  
   
-  
+## Batch phone games
 //batch phone games  
 public static boolean enableBatchPhoneGame = false;  
 public static String supportedBatchPhoneGames = "";  
   
-//Phone games  
+## Phone games  
 public static boolean includeFunAccountForPhone = false;  
   
-//Generic Slots Test Mode  
-public static boolean genericSlotsTestMode = false;  
-  
-//CurrencyRateUpdater  
+## Currency Rate
+CurrencyRateUpdater  
 public static Element currencyRateSites = null;  
 public static long currencyRefreshRate = 0l;  
   
+## Community 
 // Community Related Variables  
 public static boolean communityEnable = false;  
 public static boolean communityAccess = false;  
@@ -286,7 +323,8 @@ public static String siteHeader = null;
   
 public static boolean timerEnable = true;  
 public static String siteExternal = null;  
-  
+
+## Jurisdiction 
 // Jurisdiction parameters. can only be set once at startup and cannot be changed on the fly.  
 public static final String siteJurisdiction; // jurisdiction: set in static initializer below  
 public static final int siteBetLength; // bet-length: set in static initializer below  
@@ -305,35 +343,45 @@ private static boolean buyFeature; // for fillKey
   
 public static boolean limitLiability = false;  
   
-//Poker  
-public static String pokerRulesPath = "";  
-public static int pokerCountdown = 30000;  
-public static int pokerLobbyCache = 0;  
-public static boolean pokerProtocolXML = true;  
-public static boolean pokerProtocolString = false;  
-public static boolean logReplay = false;  
-public static boolean logFunGames = false;  
-public static boolean pokerIpRestriction = false;  
-public static int pokerSitNGoDelay = 0;  
+
   
-// DAOMapping  
+## DAOMapping  
 public static HashMap daoClassMap = new HashMap();  
   
-// Misc properties  
+## Misc 
 public static int archivedataolderthan = 0;  
 public static String site = "";  
 public static boolean resumeBlackjackCrossDevice = false;  
+
+## casinoProperties.xml
   
 //The time of last modification for casinoProperties.xml  
 static long lastModified = 0l;  
-  
+
+## Session Attribute Monitor
+
 // For the SessionAttributeMonitor, values specify num seconds.  
 public static int sessionAttrTimeoutCheckInterval = 0;  
 public static int sessionAttrTimeout = 0;  
-  
+
+## Caching
+
 // For resource caching  
 public static int resourceCacheTimeout = 0;  
+public static ResourceCacheManager ResCacheMgr = new ResourceCacheManager(0);  
+
+
+// Cache settings for CwhCache  
+public static String cacheURL_Default = null;  
+public static int cacheRetries = 5;  
+public static long cacheWaitTime = 30000l;  
+public static boolean cacheEnableMonitor = true;  
+public static long cache_lease_RTT = 500l;        // The defined Round Trip Time for notification renewals  
+public static long cache_lease_BTW = 0l;          // The defined Batch Time Window for notifications  
+public static long cache_lease_DUR = 5l * 60000l; // The defined Lease Duration Interval for notification renewals  
   
+## Skins
+
 // Identify all the base URI properties that define skins.  
 public static String[] skinURIs = new String[]{"CasinoSkinURI",  
         "PokerSkinURI",  
@@ -360,74 +408,80 @@ public static String ReplaySkinURI = null;
 // Keys by skin path, value is the affId  
 public static HashMap skinPaths = new HashMap();  
 public static Set skinnedAffIds = new TreeSet();  
+
+## Affiliates
   
 private static HashMap affSpecificConfigProps = new HashMap();  
   
 public static HashMap domainAffIdMap = new HashMap();  
 public static String domainName = null;  
-  
-public static ResourceCacheManager ResCacheMgr = new ResourceCacheManager(0);  
+
+public static long affiliateIdCacheSleep = 10 * 60 * 1000;  
+public static long affiliateIdCacheMaxAge = 24 * 60 * 60 * 1000;  
+
   
 //The time of last modification for Data Base  
 public static String timeStamp = "";  
   
 //For refresh()  
 public static boolean reloadXMLConfig = false;  
-  
+
+## Logging
 // flag to control logging info in loadDBVendor() only once  
 // to stdout  
 private static boolean alreadyLogged = false;  
-  
+
+## Database
 // ys-2005-01-28 db connection debug  
 public static boolean dbconnDebug = false;  
 public static int dbconnMonitorRestSec = 60;  
 public static int dbconnMaxLiveTimeInSec = 120;  
 // endo of ys-2005-01-28  
+public static int uniqueKeysDbPoolSize = 5;  
   
-public static long affiliateIdCacheSleep = 10 * 60 * 1000;  
-public static long affiliateIdCacheMaxAge = 24 * 60 * 60 * 1000;  
-  
-public static String serverType = "game";  
-  
+
+
+## Versioning 
+
 // Will be used to store the build version as built into the web.xml at build time.  
 public static String buildVersion = "undefined";  
-  
+
+## User login
 //unique login  
 public static boolean uniqueLogin = false;  
   
+## Scheduling
+
 public static String schedulerSyncAddress = null;  
 public static int schedulerSyncPort = 0;  
 public static String schedulerSyncInterface = null;  
 public static String schedulerAllowIdentifiers = null;  
 public static String schedulerDenyIdentifiers = null;  
   
+## [[Linked Progressive Jackpot|LPJ]]
+
 public static String lpjEnabled = "false";  
 public static long lpjUpdateRate = 10 * 1000;  
 public static int lpjTolerance = 0;  
-  
+
+## [[Progressive Jackpot]]
+
 // progressive jack related  
 public static int pjUpdateTime;  
 //the ttl for a pj update messag. It is by millisecond  
 public static long pjMessageTTL = 5000;  
 public static long pjWinMessageTTL = 120000;  
+public static int pjProcessEventNumber;  
+public static boolean pjUpdateCache = true;  
+## [[Mystery Progressive Jackpot|MPJ]]
 public static long mpjWinMessageTTL = 20000;  
 //mpjupdate message will be send after this time since MPJBalanceUpdateTime started  
 public static long mpjUpdateDelay_ms = 120000;  
 public static long mpjUpdateInterval_ms = 5000;  
-  
-public static int pjProcessEventNumber;  
-public static boolean pjUpdateCache = true;  
-public static String defaultRegAffTypeUTC = null;  
-  
-public static int pushPlayerMessageLife = 10000;  
-public static int msgAllChildAffiliates = 1;  
-  
-public static boolean autoActivateWebmasterRegistrations = true;  
-  
-// Temporary Parameters for Bonus Coupons  
-public static boolean couponEnableRedemption = false;  
-public static int couponRegistrationBonus = 0;  
-  
+public static int newMPJConnTimeout = 30000;  
+
+## [[SNG]] [[Reality Check]]
+
 // 7830 SNG Reality Check  
 public static boolean rcEnable = false;  
 public static boolean pslEnable = false;  
@@ -439,7 +493,8 @@ public static int rcLockPlayerUntilTime = 0; // in minutes
 public static int rcMsgType = 1;  
 public static boolean rcAllowPlayerDisable = false; // allow player to turn off rc  
 // End of 7830 SNG Reality Check  
-  
+
+## Time Stamping Service
 // time-stamping service  
 public static boolean timeStampEnabled = false;  
 public static String timeStampKeystoreFileName = "xboss/casino_cms.keystore";  
@@ -458,43 +513,63 @@ public static int timeStampFtpTimeout = 3000;
 public static String timeStampFtpWorkFolder = "chartwell";  
   
   
-public static int bankDetailTxnSubType = -1;  
-public static Map bankNumPmtAcctAllow = new HashMap();  
-  
+## Responsible Gaming 
+
 // Responsible Gaming - CR7830  
 public static String timeLimitedStatusTypes = null;  
 public static int timeLimitedStatusMaxDays = 30;  
 public static String genericStatusConfirmationMessage = null;  
-  
+
+## Address Verification Service server
 // Avas server url  
 public static String avasServerUrl = null;  
   
-// Captcha  
+## Captcha
 public static String captchaServletURL = null;  
 public static boolean isCaptchaEnabled = false;  
 public static String captchaIdURL = null;  
-  
+
+## Fop server
+I don't know what this is, there might have been a module at some point, but in pom.xml the module is commented out. #deprecated 
 // fopserver  
 public static String fopServletURL = null;  
 public static boolean fopEnabled = false;  
-  
+## Fup webapp
+Same as [[#Fop server]] 
 //fup webapp  
 public static String fupServerURL = null;  
 public static String fupEmailTemplateURL = null;  
 public static int fupEmailExpireTime = 4; //in hours  
-  
+
+## Black List
 public static boolean blacklistEnabled = false;  
 public static String blacklistProviders = null;  
-  
+
+## Registration normalization
+#what is registration normalization? 
 public static String regnormalizationdeffilename = null;  
 public static String regnormalizationdeffileencoding = null;  
-  
+
+## Transaction Reports
 public static int transactionReportPageSize = 100;  
-public static int uniqueKeysDbPoolSize = 5;  
+
+
+## Unknown
+
+public static String defaultRegAffTypeUTC = null;  
   
-// Sleep/Counts for BonusHandlers  
-private static final String EVENT_CONFIG_HANDLER = "event.config.handler";  
-public static Map handlerProperties = new Hashtable();  
+public static int pushPlayerMessageLife = 10000;  
+public static int msgAllChildAffiliates = 1;  
+  
+public static boolean autoActivateWebmasterRegistrations = true;  
+  
+public static String serverType = "game";  
+public static long gdkEventTimeout = 30000;  
+  
+public static int numReservedGamePlayIdInBatch = 1000;  
+public static int numReservedHandIdInBatch = 1000;  
+
+## Game Profile Management System
   
 // Properties for Game Profile Management System.  
 public static boolean updateCache = false;  
@@ -502,7 +577,8 @@ public static int maxNumberGameProfiles = 2000;
 public static int maxSizeXmlContent = 100000;  
 public static int maxNumberPJPlans = 500;  
 public static String gigaSpaceMapURL = null;  
-  
+## Event Space GigaSpace 
+
 // EventSpace/GigaSpace section  
 public static String esGigaSpaceURL = null;  
 public static String esDAOClassName = null;  
@@ -538,27 +614,21 @@ public static int csMaxProcessingObserverTasks = 5;
 public static long csCacheStateMonitorSleepTime = 1000l;  
 public static boolean playerExclusionPassword = false;  
 public static boolean depositLimitPassword = true;  
+
+## XML sanitization
   
-/**  
+public static boolean cleanupReqXmlEnabled = false;  
+
  * Controls sanity clean-up measures of incoming XML requests from legacy games (Casino 1.0). * Setting this value to TRUE causes CasinoDocument.createRequest to trim leading chars prior to * the XML declaration and trailing chars from the closing root tag.  Set this value using the * property name 'base.cleanupReqXml.enabled' in the CasinoProperties table. * * @author awilson TT15546  
  * @since 2008-09-17  
- */public static boolean cleanupReqXmlEnabled = false;  
-  
-/**  
+
+public static final String CLEANUP_REQ_XML_ENABLED = "base.cleanupReqXml.enabled";  
+
  * Property name for cleanupReqXmlEnabled, 'base.cleanupReqXml.enabled'. * * @author awilson TT15546  
  * @since 2008-09-17  
- */public static final String CLEANUP_REQ_XML_ENABLED = "base.cleanupReqXml.enabled";  
   
-  
-// Cache settings for CwhCache  
-public static String cacheURL_Default = null;  
-public static int cacheRetries = 5;  
-public static long cacheWaitTime = 30000l;  
-public static boolean cacheEnableMonitor = true;  
-public static long cache_lease_RTT = 500l;        // The defined Round Trip Time for notification renewals  
-public static long cache_lease_BTW = 0l;          // The defined Batch Time Window for notifications  
-public static long cache_lease_DUR = 5l * 60000l; // The defined Lease Duration Interval for notification renewals  
-  
+## Messaging 
+
 public static int messageMaxHashGroups = -1;  
 public static long messageFeederSleepTime = 100l;  
 public static int messageFeederSleepTimeMultiplier = 10;  
@@ -570,6 +640,7 @@ public static long messageWaitingTimeout = 30000l;
 public static boolean messageKeepAlive = true;  
 public static long lastMessageValidationInterval = 60000L;  
   
+## Xmpp (Chat)
 public static String xmppserveraddress = null; // IP or Domain  
 public static String xmppserveradmin = "admin";  
 public static String xmppserverpassword = "chatpassword";  
@@ -581,17 +652,11 @@ public static int xmppConnectionWaitTimeout = 5000;
 public static int xmppConnectionIdleTimeout = 5 * 60 * 1000;  
 public static int xmppMaxQueueSize = 300;  
 public static int xmppMaxConnection = 5;  
+
+
+
   
-public static long gdkEventTimeout = 30000;  
-  
-public static int numReservedGamePlayIdInBatch = 1000;  
-public static int numReservedHandIdInBatch = 1000;  
-  
-public static boolean enableEGIResumeCheck = false;  
-  
-public static int newMPJConnTimeout = 30000;  
-  
-//Stateless Games  
+## Stateless Games  
 public static boolean game_session_stateless = false;      
 public static String data_repository_factory;  
 public static int num_expired_sessions_retrieved = 100;  
@@ -619,24 +684,23 @@ public static int remote_game_connection_timeout_ms = 30000;
 public static String geoIPUrl = "";  
   
 public static boolean rngLog = true;
-		- 
-	- Misc
-		- `siteParent`
-		- `gameSite`
-		- `casinoEntry`
-		- `supportRecipient`
-		- `casinotimeout`
-		- `inactivetimeout`
-		- `icdtimeout`
-		- `siteName`
-		- `appletPath` - #why ? Is it still in use?
-		- `gameWidth`
-		- `gameHeight`
-		- `licenseeLSDID`
-		- `deployIp`
-		- `casinoDownloadProductId`
-		- `casinoDownloadInstallerName`
-		- `gameSessionProcessingTimeout`
-			- this is the expiration time of a game session. 
-			- If a game request is stuck for this time, the game session will be considered expired and will be cleaned up.
-	- 
+## Misc
+- `siteParent`
+- `gameSite`
+- `casinoEntry`
+- `supportRecipient`
+- `casinotimeout`
+- `inactivetimeout`
+- `icdtimeout`
+- `siteName`
+- `appletPath` - #why ? Is it still in use?
+- `gameWidth`
+- `gameHeight`
+- `licenseeLSDID` #field/lsdId 
+- `deployIp`
+- `casinoDownloadProductId`
+- `casinoDownloadInstallerName`
+- `gameSessionProcessingTimeout`
+	- this is the expiration time of a game session. 
+	- If a game request is stuck for this time, the game session will be considered expired and will be cleaned up.
+- 

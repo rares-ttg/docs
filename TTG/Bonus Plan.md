@@ -1,5 +1,6 @@
 It seems to be referenced as `bonusPlanInfo`  in other classes. It describes bonuses that can be offered through the app. Both money and free games can be offered as bonuses. It seems to somehow overlap with awards. 
-
+- [ ] merge this with [[BonusPlan]] and [[BonusPlanInfo]]
+- [ ] look for freeGamesNumber in `com.ttg.platform.core.domain.BonusPlan`
 - #field/bonusPlanInfoId
 - name
 - [[Bonus Type]]

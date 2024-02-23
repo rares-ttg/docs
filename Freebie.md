@@ -1,0 +1,1 @@
+Games can be given of free. It is a kind of [[BonusPlan]] 

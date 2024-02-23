@@ -1,1 +1,1 @@
-External provider
+External provider of games. Is also a [[AffTypes|type]] of [[Affiliate|affiliate]].

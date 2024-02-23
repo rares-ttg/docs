@@ -26,6 +26,16 @@ Document covering all the code conventions in TTG.
 
 ## Code
 
+### General
+
+#### Naming
+
+1. No matter how long the class, method or attribute name, do not use shorthand notation. 
+	1. It is `accountId`, not `acctId`. 
+	2. It is not `lsdId`, but .... whatever `lsd` is supposed to stand for.
+	3. It is not `int cBonusStartValue`, but `int codedBonusStartValue`
+2. 
+
 ### Testing
 
 #### Class name
@@ -37,6 +47,8 @@ Document covering all the code conventions in TTG.
 
 ### Exceptions
 ### Class
+
+
 
 #### Comment
 #### Naming

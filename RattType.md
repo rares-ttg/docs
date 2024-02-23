@@ -1,0 +1,1 @@
+This is the type of [[Rule of Affiliate Transaction Tagging|Ratt]]

@@ -1,6 +1,6 @@
 This might be related to `awardFixedAmount` and `awardPercentage` in [[Bonus Plan]], although it is not clear #why code duplication occurred. 
 BonusAward seems to refer to a bonus that was given to a player. Bonuses can give free money or free games.  
-
+- [  ] what is the relation between this and [[Domain#Bonus Award]]
 
 Fields
 - bonusAwardId - self-explanatory, I hope
@@ -23,7 +23,7 @@ Fields
 		- freeGamesRemaining: int 
 			- how many games the user can still play
 			- presumably, this is decremented every time the user plays another free game.
-- bonusAwardStateId - refers to [[BonusAwardState]]
+- bonusAwardStateId - refers to [[Bonus Award State]]
 - awardDate
 	- the date the bonus was given to the player?
 - [[Metric]]  - I dunno what this is. There is also an  `applyCommunityMetric` in [[BonusPlan]]

@@ -1,0 +1,1 @@
+- [ ] there are too many Player classes. Map out their attributes and methods and see if there are any overlaps

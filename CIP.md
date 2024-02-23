@@ -105,7 +105,15 @@ Also on [[ttglib]] via [[com.ttg.security.command]].
 	3. and it gets the #field/affId from `AffiliateDAO`(see [[Affiliate Identity]]) 
 	4. Both are set on the `FreeGameEligibilityRequest` object that is returned to the caller
 4. Then it invokes `FreeGameElligibilityCommand` via #fml/reflection
-	1. in the `Command`'s execute method, it invokes via MyBatis (`FreeGameEligibilityMapper`) a gigantic select. From what I can gather, it checks whether the 
+	1. in the `Command`'s execute method, it invokes via MyBatis (`FreeGameEligibilityMapper`) a gigantic select on #table/AffParents #table/AffHierarchy #table/FreeGameEligibility #table/Games #table/Game_Profile . The condition is that `AffParent.distance` is 0. In other words, it only looks for those affiliates that are
+		1. most proximate (`distance`=0)
+		2. the game's status is 1 ( #table/Games)
+		3. the game profile is active
+		4. game profile `outputtAcId` is not 1; #what is `outputAccId`?
+		5. the affiliate is eligible (its affId is in #table/FreeGameEligibility  )
+	2. It then builds the XML response file
+5. It then builds the response. 
+
 ## /freeSpins
 
 Handled by `FreeSpinsService`.
@@ -182,4 +190,25 @@ See `PlayerFreeGamesBonusPlanCommand.addFreeGamesBonusPlanByPlayer`
 	29. It is then persisted in #table/BonusAward 
 	30. The BonusPlan object is returned
 4. Sends a GameEvent 
+
+## /gametoken
+
+Base class: `com.ttg.cip.rest.service.GameTokenService`
+### /{uid}
+
+POST request, which consumes and produces XML. 
+#### Parameters
+- (*required* )player: a `com.ttg.cip.model.action.Player` which is one of the many [[Player]] classes. 
+- (*optional* )partners: a list of [[Partner|partners]]. 
+
+#### Process
+- first calls `validateLogin(uId, LoginRequest)`, the second parameter contains the Player and partner
+	- This calls `LoginRequestValidation.execute(LoginRequest)` and does some basic parameter check #fml/reflection 
+-  then calls `processLogin(Player.clientAccount,LoginRequest)`
+	- The method's signature is `boolean processLogin(String uId, LoginRequest loginDetail)`, but when it is called, it is passed the player's client account #why? 
+		- the first thing the `processLogin` method does is to get the Player id, by looking it up: `PlayerDAO.getPlayerId(uId,siteId)`. 
+			- This ultimately calls `PlayerMapper`, a MyBatis mapper interface, and runs a select that gets the #field/playerId by client account ([[Player Identity|see this for a mindfuck]])
+		- 
+
+
 

@@ -196,19 +196,53 @@ See `PlayerFreeGamesBonusPlanCommand.addFreeGamesBonusPlanByPlayer`
 Base class: `com.ttg.cip.rest.service.GameTokenService`
 ### /{uid}
 
-POST request, which consumes and produces XML. 
+POST request, which consumes and produces XML. The path variable stands for client account. 
 #### Parameters
 - (*required* )player: a `com.ttg.cip.model.action.Player` which is one of the many [[Player]] classes. 
 - (*optional* )partners: a list of [[Partner|partners]]. 
 
 #### Process
+The main class is `GameTokenService`. 
+
 - first calls `validateLogin(uId, LoginRequest)`, the second parameter contains the Player and partner
 	- This calls `LoginRequestValidation.execute(LoginRequest)` and does some basic parameter check #fml/reflection 
--  then calls `processLogin(Player.clientAccount,LoginRequest)`
+-  then calls `processLogin(Player.clientAccount,LoginRequest)`. #why is it called `processLogin` instead of `validateToken`?
 	- The method's signature is `boolean processLogin(String uId, LoginRequest loginDetail)`, but when it is called, it is passed the player's client account #why? 
 		- the first thing the `processLogin` method does is to get the Player id, by looking it up: `PlayerDAO.getPlayerId(uId,siteId)`. 
 			- This ultimately calls `PlayerMapper`, a MyBatis mapper interface, and runs a select that gets the #field/playerId by client account ([[Player Identity|see this for a mindfuck]])
-		- 
+- on the `loginRequest`, it sets the `playerId` to the acquired value, and also sets the client account to `uId` (the value sent as parameter). Any normal person will see `uId` and assume it stands for userId, but not here. It stands for client account #fml/naming-hell.
+-  if the player Id retrieved from the client account is not null
+	- retrieve the [[Affiliate#Registration Affiliate|registration affiliate]] #field/regAffId . This is a select on #table/Player 
+	- use the registration affiliate Id to get #field/lsdId . This is a select on #table/Affiliate . These two could've been done by joining the two selects
+	- it gets the #field/partnerId from the [[Player]]
+		- if the #field/regAffId is not the same as the partnerId and if the partners list in the `LoginRequest` method parameter is empty, then login fails and the method returns false
+	- This if block basically checks if the player belongs to the correct affiliate.
+- If the login is valid, then it invokes `AffiliateCreationCommand.execute()` which calls `AffiliateCreationCommand.createNewAffiliate(LoginRequest)`. 
+	- if the player's partnerId (`LoginRequest.player.playerId`) is null, then it is automatically set to `com.ttg.affiliate.domain.Affiliate.LINCESEE_LSDID="zero"` #configuration/LICENSEE_LSD_ID
+	- just to be clear, the `LoginRequest` object received as parameter has a property modified in this method, because fuck separation of concerns #fml 
+	-  It then gets the #field/siteId  from the License. It calls another configuration class `SystemPropertyService` #fml/configuration-hell to read the license for the siteId. 
+	- If the list of partners on the `LoginRequest` parameter is empty then 
+		- it checks whether the `partnerId` is empty. If it is, then it returns. But this never occurs, since the partnerId was just set above
+		- It then gets an [[Affiliate]] by partnerId and #field/siteId by also looking in #table/AffHierarchy . So it searches the whole Affiliate hierarchy
+		- if it does not find an affiliate, then it builds one by calling `AffiliateCreationCommand.buildDefaultAffiliate()`. This creates a default  affiliate where the #field/lsdId  is the same as the player's #field/partnerId .
+			- The affiliate has a #field/lsdId and a #field/affName  both set to #field/partnerId 
+			- it sets the #field/siteId 
+			- it sets the #field/modifiedByGid to `GlobalIdentityService.GENERIC_GID=-99` #configuration/GENERIC_GID  
+			- if the method parameter `setDefaultPartnerType` is set to true, then it also sets the [[Affiliate#Types|affiliate type]] to partner. The `AffiliateType` is retrieved from an `com.ttg.affiliate.service.AffiliateCache`, an interface implemented by `com.ttg.affiliate.service.AffiliateCacheService`. #cache 
+				- The affiliate's parent affiliate Id is set to the `Affiliate.LICENSEE_ID`
+		- the Affiliate returned by `createDefaultAffiliate` is then added to a list of affiliates;
+	- If the list is not empty,
+		- iterates over the partners (affiliates)
+			- gets the [[Affiliate|affiliate's]] details, the same way it got them above, by calling `affiliateDao.getAffiliateDetails(partnerId, siteId, false)`
+			- if the affiliate is null, then it builds a default affiliate, and sets the the `affiliateTypeId` to the same type as that of the current partner. 
+			- the affiliate is added to the list of affiliates
+	- It then gets registration affiliate by the player's id (calls `PlayerDao.getRegistrationAffiliate(playerId)`) basically a select on #table/Player #field/regAffId 
+		- if not null, then then gets affiliate's details 
+	- calls `AffiliateService.processAffiliateHierarchy(affiliates,registrationAffiliate)` , where `affiliates` is the list of affiliates created above. 
+		- the method validates the afiliate type Hierarchy `validateAffiliateTypeHierarchy`
+			- The first item in the  affiliate list must be licensee or partner. 
+			- 
+		- then creates and affiliate hierarchy from the `affiliates` and the player's registration affiliate
 
 
 

@@ -2,6 +2,7 @@
 tags:
   - "#legacy"
   - game-collection
+module: games
 ---
 - [[Amazon Wild]]
 - [[Bingo Keno]]
@@ -14,3 +15,5 @@ tags:
 - [[Pinball Roulette]]
 - [[BlackJack]]
 - [[Showdown Poker]]
+
+This appears as a module, but there is no `web.xml` associated with it.

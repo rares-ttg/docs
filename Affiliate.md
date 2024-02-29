@@ -83,3 +83,10 @@ See ![[Partner System.svg]]
 ## State
 
 Can be active/inactive.
+
+## Types
+
+Some types are listed in [[AffTypes]] , others are in `com.ttg.affiliate.domain.Affiliate.TYPE` enum. There, the affiliates are Licensee, Partner, Webmaster and Broker. In AffTypes there's also Marketing Campaign and banner.
+## Registration Affiliate
+
+In #table/Player  there is a column #field/regAffId which is needed by [[CIP#/{uid}|game token service]] 
